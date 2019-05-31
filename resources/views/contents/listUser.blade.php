@@ -41,7 +41,7 @@
                                 <td><a href = "/admin/active/{{$user->id}}" class=" btn-action badge @if($user->status == 0){{'badge-success'}} <?php $status='Active'?> @else {{'badge-danger'}} <?php $status='Not Ative' ?> @endif">{{$status}}</a></td>
                                 <td>
                                     <a class="btn btn-primary btn-action mr-1"  title="Edit" href="/admin/userEdit/{{$user->id}}"><i class="ion ion-edit"></i></a>
-                                    <a class="btn btn-danger btn-action"  title="Delete"><i class="ion ion-trash-b"></i></a>
+                                    <a class="btn btn-danger btn-action"  title="Delete" href="/admin/delete/{{$user->id}}" onclick="return confirm('Ban chac chan muon xoa?');"><i class="ion ion-trash-b"></i></a>
                                 </td>
                             </tr>
                         @endforeach

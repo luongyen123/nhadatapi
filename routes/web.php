@@ -50,12 +50,14 @@ $router->group(['prefix' => 'api'], function () use ($router) {
     });
 });
 $router->group(['prefix' => 'admin'], function () use ($router) {
-       
-    $router->get('login', 'AuthController@index');
-    $router->get('register', 'AuthController@register');
+    $router->group(['middleware' => 'login'], function () use ($router) {
+        $router->get('login', 'AuthController@index');
+        $router->get('register', 'AuthController@register');
+    }); 
+    
     
     $router->group(['middleware' => 'admin'], function () use ($router) {
-        $router->get('home','HomeController@index');
+        $router->get('/home','HomeController@index');
         
         $router->get('quanhuyen', function ()  {
             return view('contents.quanhuyen', ['title' => 'Page quanhuyen','id'=>'quanhuyen']);
@@ -73,6 +75,7 @@ $router->group(['prefix' => 'admin'], function () use ($router) {
             $router->get('getUser','HomeController@getUser');
             $router->get('active/{id}','HomeController@activeUser');
             $router->get('userEdit/{id}','HomeController@editUser');
+            $router->get('delete/{id}','HomeController@deleteUser');
         });
         $router->get('vietbai', function ()  {
             return view('contents.vietbai', ['title' => 'Viết bài mới','id'=>'vietbai']);
@@ -86,6 +89,6 @@ $router->group(['prefix' => 'admin'], function () use ($router) {
             $router->get('editTinmua/{id}','HomeController@getEditTinmua');
         });                 
 
-        
+        $router->get('tailieu','HomeController@getTailieu');
     });
 });

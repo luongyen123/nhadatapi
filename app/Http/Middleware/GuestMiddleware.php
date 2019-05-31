@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 use Closure;
+use Illuminate\Support\Facades\Redirect;
 
 class GuestMiddleware
 {
@@ -13,15 +14,14 @@ class GuestMiddleware
      * @return mixed
      */
     public function handle($request, Closure $next)
-    {
-        $token = $request->cookie('token');
-        dd($token);
-        if($token != null || $token != "" || $token != "null"){
-            return redirect('/admin/home');
-        }else{
-
-            return $next($request);
-        }
+    {       
+        if(isset($_COOKIE['token'])){
+            if($_COOKIE['token'] == null ||$_COOKIE['token'] == "" ||$_COOKIE['token'] == "null"){
+                return $next($request);               
+            }
+        }                 
+        return redirect('/admin/home');
+        
         
     }
 }

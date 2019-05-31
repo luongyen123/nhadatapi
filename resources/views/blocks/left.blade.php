@@ -41,7 +41,7 @@
                     <a href="/admin/getUser"><i class="ion ion-ios-people-outline"></i><span>Quản lý user</span></a>
             </li>
             <li id="tailieu">
-                    <a href="/admin/getUser"><i class="ion ion-ios-book"></i><span>Quản lý tai lieu</span></a>
+                    <a href="/admin/tailieu"><i class="ion ion-ios-book"></i><span>Quản lý tai lieu</span></a>
             </li>
         </aside>
       </div>

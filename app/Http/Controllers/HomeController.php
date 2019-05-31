@@ -134,4 +134,19 @@ class HomeController extends Controller
         $data = User::editUser($request->all(),$request->user_id);
         return $this->successResponseMessage(new UserResource($data), 200, "Update thanh cong");
     }
+
+    public function deleteUser($id){
+        $user = User::findorFail($id);
+        $user->delete();
+       return \redirect('admin/getUser');
+    }
+
+    public function getTailieu(){
+        $title ="Tai lieu he thong";
+        $id = "tailieu";
+
+        // $users = User::paginate(10);       
+
+        return view('contents.tailieu',\compact(['title','id']));
+    }
 }

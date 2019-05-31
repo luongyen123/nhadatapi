@@ -76,7 +76,7 @@ $app->routeMiddleware([
     'admin' => App\Http\Middleware\AuthMiddleware::class,
 ]);
 $app->routeMiddleware([
-    'guest' => App\Http\Middleware\GuestMiddleware::class,
+    'login' => App\Http\Middleware\GuestMiddleware::class,
 ]);
 $app->routeMiddleware([
     'isAdmin' => App\Http\Middleware\AdminMiddleware::class,
