@@ -135,6 +135,5 @@ $user = json_decode($user);
 @endsection
 @section('js')
 <script src="{{asset('../ckeditor/ckeditor.js')}}"></script>
-<script src = "{{asset('../dist/js/backend/cookie.min.js')}}"></script>
 <script src="{{asset('../dist/js/backend/tinmuaban.js')}}"></script>
  @endsection

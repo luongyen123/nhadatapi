@@ -52,7 +52,19 @@ class LoginController extends Controller
     }
 
     public function logout(Request $request){       
-        Auth::logout();
-        return $this->successResponseMessage(new \stdClass(), 200, "Logout success");
+        $token = $this->jwt->getToken();
+        $this->jwt->invalidate($token);
+        return  $this->successResponseMessage(new \stdClass(), 200, "Logout success");
+    }
+    
+    public function getUser(Request $request){
+        $token = $this->jwt->getToken();
+        $user = $this->jwt->toUser($token);
+ 
+        if($user == false){
+            return $this->successResponseMessage(new \stdClass(), 401, "Unathorziator");
+        }else{
+           return  $this->successResponseMessage(new \stdClass(), 200, "Token success");
+        }
     }
 }

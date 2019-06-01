@@ -58,5 +58,4 @@
  </section>
 @endsection
 @section('js')
-<script src = "{{asset('../dist/js/backend/cookie.min.js')}}"></script>
  @endsection

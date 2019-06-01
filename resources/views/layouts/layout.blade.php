@@ -37,6 +37,8 @@
   </div>
   <script src="{{asset('../dist/modules/jquery.min.js')}}"></script>
   <script src="{{asset('../dist/modules/bootstrap/js/bootstrap.min.js')}}"></script>
+  <script src = "{{asset('../dist/js/backend/cookie.min.js')}}"></script>
+  <script src="{{asset('../dist/js/checktoken.js')}}"></script>
   @yield('js')
 </body>
 </html>

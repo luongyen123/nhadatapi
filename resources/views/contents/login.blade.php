@@ -50,5 +50,4 @@
 <script src="{{asset('../dist/js/backend/jquery.validate.min.js')}}"></script>
 <script src="{{asset('../dist/js/backend/additional-methods.min.js')}}"></script>
 <script src = "{{asset('../dist/js/backend/login.js')}}"></script>
-<script src = "{{asset('../dist/js/backend/cookie.min.js')}}"></script>
 @endsection

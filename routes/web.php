@@ -30,6 +30,7 @@ $router->group(['prefix' => 'api'], function () use ($router) {
     $router->post('getLoaitin','LoaitinController@getLoaitin');
 
     $router->post('getTinmuaban','HomeController@getTinmuaban');
+    $router->post('/getUser','LoginController@getUser');
 
     $router->group(['middleware' => 'jwt.auth'], function () use ($router) {
         $router->group(['prefix' => 'media'], function () use ($router) {

@@ -68,7 +68,7 @@ $app->singleton('filesystem', function ($app) {
 // ]);
 $app->configure('jwt');
 $app->configure('auth');
-
+$app->configure('services');
 $app->routeMiddleware([
     'auth' => App\Http\Middleware\Authenticate::class,
 ]);

@@ -3,16 +3,22 @@
 namespace App\Http\Middleware;
 use Closure;
 use Mockery\Undefined;
+use Tymon\JWTAuth\JWTAuth;
 
 class AuthMiddleware
 {
+    protected $jwt;
+
     /**
-     * Handle an incoming request.
+     * Create a new controller instance.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
-     * @return mixed
+     * @return void
      */
+    public function __construct(JWTAuth $jwt)
+    {
+        $this->jwt = $jwt;
+    }
+
     public function handle($request, Closure $next)
     {
         $token = $request->cookie('token');

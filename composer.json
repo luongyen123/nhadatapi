@@ -9,6 +9,7 @@
         "laravel/lumen-framework": "5.8.*",
         "vlucas/phpdotenv": "^3.3",
         "tymon/jwt-auth": "^1.0.0-beta.3@dev",
+        "guzzlehttp/guzzle": "^6.3",
         "league/flysystem": " ~1.0"
     },
     "require-dev": {

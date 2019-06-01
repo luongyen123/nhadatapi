@@ -7,8 +7,8 @@ use ErrorException;
 use App\Traits\ApiResponser;
 use InvalidArgumentException;
 use Illuminate\Database\QueryException;
+use GuzzleHttp\Exception\ClientException;
 use Tymon\JWTAuth\Exceptions\JWTException;
-use Illuminate\Auth\AuthenticationException;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Auth\Access\AuthorizationException;
 use Tymon\JWTAuth\Exceptions\TokenExpiredException;
@@ -58,7 +58,7 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
-        dd($exception);
+        // dd($exception);
         if ($exception instanceof ModelNotFoundException) {
             $model = strtolower(class_basename($exception->getModel()));
             return $this->errorResponse("Does not exits any instance of {$model} with the given", 404);
@@ -103,6 +103,9 @@ class Handler extends ExceptionHandler
         }
         if ($exception instanceof InvalidArgumentException) {
             return $this->errorResponse($exception->getMessage(), 411);
+        }
+        if ($exception instanceof ClientException) {
+            return $this->errorMessage($exception->getResponse()->getBody(), $exception->getCode());
         }
         if (env('APP_DEBUG') == false) {
             return parent::render($request, $exception);
