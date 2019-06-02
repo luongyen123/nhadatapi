@@ -1,3 +1,51 @@
+.header-top img{
+	width: 75px;
+	height: auto;
+}
+.search-header button{
+	position: absolute;
+    width: 50px;
+    right: 0;
+    height: 35px;
+    padding: 3px;
+    background: #2f6baa;
+    border: none;
+    color: #FFF;
+    border-radius: 0 20px 20px 0;
+}
+.search-header input{
+	float: left;
+    width: 90%;
+    padding: 8px 10px 8px 20px;
+    height: 35px;
+    border-radius: 20px 0 0 20px;
+    box-shadow: none;
+}
+.search-header{
+	    width: 100%;
+    overflow: hidden;
+    position: relative;
+    margin: 20px 0;
+}
+.title-phone{
+	display: block;
+    font-size: 13px;
+}
+.call-header img{
+	float:left;
+	    width: 48px;
+    height: auto;
+    margin-right: 10px;
+}
+.hotline-phone{
+	    color: #ec1b23;
+    font-size: 20px;
+    line-height: 26px;
+    font-weight: 600;
+}
+.call-header{
+	margin:15px 0px;
+}
 .header{
 	background-color: #2f6baa;
 	color: white;

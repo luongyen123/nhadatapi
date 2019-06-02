@@ -1,11 +1,14 @@
 @extends('layouts.frontend.layout')
+@section('css')
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/8229ED9D-4135-FC4F-AE2F-384AA3546900/main.js" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="https://gc.kis.v2.scr.kaspersky-labs.com/B58CC401-E43D-004D-858E-1B3C900229C4/abn/main.css"/>
+@endsection
 @section('content')   
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <!-- Wrapper for slides -->
         <div class="carousel-inner">
 
           <div class="item active">
-            <img src="http://nhadatachau.vn/img/banner1.jpg" alt="Los Angeles" style="width:100%;">
+            <img src="{{asset('../banner.jpg')}}" alt="Los Angeles" style="width:100%;">
             <div class="carousel-caption">
               <h3>Los Angeles</h3>
               <p>LA is always so much fun!</p>
@@ -13,7 +16,7 @@
           </div>
 
           <div class="item">
-            <img src="http://nhadatachau.vn/img/banner1.jpg" alt="Chicago" style="width:100%;">
+            <img src="{{asset('../banner.jpg')}}" alt="Chicago" style="width:100%;">
             <div class="carousel-caption">
               <h3>Chicago</h3>
               <p>Thank you, Chicago!</p>
@@ -21,7 +24,7 @@
           </div>
         
           <div class="item">
-            <img src="http://nhadatachau.vn/img/banner1.jpg" alt="New York" style="width:100%;">
+            <img src="{{asset('../banner.jpg')}}" alt="New York" style="width:100%;">
             <div class="carousel-caption">
               <h3>New York</h3>
               <p>We love the Big Apple!</p>
