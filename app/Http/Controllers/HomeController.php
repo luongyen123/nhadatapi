@@ -4,11 +4,16 @@ namespace App\Http\Controllers;
 
 use App\User;
 use App\Tintuc;
+use App\Xaphuong;
 use App\Tinmuaban;
 use App\Traits\ApiResponser;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Resources\UserResource;
 use App\Http\Resources\TinmuabanCollection;
+use App\Quanhuyen;
+use App\Tinh;
+use App\Loaitin;
 
 class HomeController extends Controller
 {
@@ -39,8 +44,12 @@ class HomeController extends Controller
         $loaibai = $request->loaibai;
         
         if($loaibai ==1){
+            $slug = $this->createSlug($request->tieude,$loaibai);
+            $request->request->set('slug',$slug);
             $data = Tinmuaban::createTinmuaban($request->all());
         }else{
+            $slug = $this->createSlug($request->tieude,$loaibai);
+            $request->request->set('slug',$slug);
             $data = Tintuc::createNews($request->all());
         }
         return $this->successResponseMessage($data,200,"Tao thanh cong");
@@ -148,5 +157,75 @@ class HomeController extends Controller
         // $users = User::paginate(10);       
 
         return view('contents.tailieu',\compact(['title','id']));
+    }
+    public function createSlug($title,$type)
+    {
+        $id=0;
+        // Normalize the title
+        $slug = str_slug($title);
+        // Get any that could possibly be related.
+        // This cuts the queries down by doing it once.
+        $allSlugs = $this->getRelatedSlugs($slug, $id,$type);
+        // If we haven't used it before then we are all good.
+        if (! $allSlugs->contains('slug', $slug)){
+            return $slug;
+        }
+        // Just append numbers like a savage until we find not used.
+        for ($i = 1; $i <= 10; $i++) {
+            $newSlug = $slug.'-'.$i;
+            if (! $allSlugs->contains('slug', $newSlug)) {
+                return $newSlug;
+            }
+        }
+        throw new \Exception('Can not create a unique slug');
+    }
+
+    protected function getRelatedSlugs($slug, $id = 0,$type)
+    {    
+        if($type ==1){
+            return DB::table('tinmuaban')->select('slug')
+            ->where('slug', 'like', $slug.'%')
+            ->where('id', '<>', $id)->get();
+        }else{
+            return DB::table('tintuc')->select('slug')
+            ->where('slug', 'like', $slug.'%')
+            ->where('id', '<>', $id)->get();
+        }  
+                  
+    }
+    public function createXaphuong(Request $request){
+        $slug = str_slug("tin tuc mua ban ".$request->type." ".$request->tenxa);       
+       $request->request->set('slug',$slug);
+
+       $xaphuong = Xaphuong::createNews($request->all());
+       return redirect('/admin/quanhuyen');
+    }
+    public function createQuanhuyen(Request $request){
+        $slug = str_slug("tin tuc mua ban ".$request->type." ".$request->tenqh);       
+       $request->request->set('slug',$slug);
+
+       $quanhuyen = Quanhuyen::createNews($request->all());
+       return redirect('/admin/quanhuyen');
+    }
+
+    public function createTinh(Request $request){
+        $slug = str_slug("tin tuc mua ban ".$request->type." ".$request->tentinhtp);       
+       $request->request->set('slug',$slug);
+
+       $tinh = Tinh::createNews($request->all());
+       return redirect('/admin/quanhuyen');
+    }
+
+    public function loaiTin(){
+        $loaitin = Loaitin::paginate();
+        $id="phanloaitin";
+        $title="Phân loại tin tức";
+        return view('contents.loaiTin',\compact(['loaitin','title','id']));
+    }
+    public function createThemloai(Request $request){
+        $slug = str_slug($request->Tenloaitin);       
+        $request->request->set('slug',$slug);
+        $loaitin = Loaitin::createNews($request->all());
+        return redirect('/admin/loaiTin');
     }
 }

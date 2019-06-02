@@ -49,11 +49,14 @@ $('#edituser').on('submit', function(e){
                 if(psw != "none"){
                     Cookies.set('token',"null",{ expires: 30 });
                     Cookies.set('user',"null",{ expires: 30 });
+
+                    location.href = '/admin/login';
                 }else{
                     Cookies.set('user',data.data, { expires: 30 });
+                    location.href = '/admin/home';
                 }
             }
-            location.reload();
+            
         }
 
     });// if getting done then ca

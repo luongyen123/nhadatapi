@@ -19,14 +19,14 @@ class AuthMiddleware
         $this->jwt = $jwt;
     }
 
-    public function handle($request, Closure $next)
+    public function handle($request, Closure $next,$guard = null)
     {
         $token = $request->cookie('token');
-        if($token == null || $token == "" || $token == "null"){      
+        if($token == null || $token == "" || $token == "null"){
             return redirect('/admin/login');
-        }else{
-            return $next($request);
         }
+        return $next($request);
+        
         
 
     }

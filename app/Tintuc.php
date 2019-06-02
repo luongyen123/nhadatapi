@@ -7,7 +7,7 @@ class Tintuc extends Model
 {
     protected $table = 'tintuc';
     protected $fillable = [
-        'id','tieude','loaitin_id','chitiet','anh_daidien','user_id'
+        'id','tieude','loaitin_id','chitiet','anh_daidien','user_id','slug','status'
     ];
 
     public function user(){
@@ -15,12 +15,17 @@ class Tintuc extends Model
     }
 
     public static function createNews($data){
+        if($data['anh'] == ""){
+            $data['anh'] = env('APP_URL')."/defautl.jpg";
+        }
         $tintuc = Tintuc::create([
             'tieude'=>$data['tieude'],
             'loaitin_id'=>$data['loaitin'],
             'chitiet'=>$data['description'],
             'anh_daidien'=>$data['anh'],
-            'user_id'=>$data['user_id']
+            'user_id'=>$data['user_id'],
+            'slug'=> $data['slug'],
+            'status'=>0
         ]);
         return new TintucResource($tintuc);
     }
@@ -36,4 +41,5 @@ class Tintuc extends Model
         
         return new TintucResource($tintuc);
     }
+    
 }

@@ -11,7 +11,7 @@ class Tinmuaban extends Model
 {
     protected $table = 'tinmuaban';
     protected $fillable = [
-        'id','tieude','gia','dientich','vitri','maqh_id','matinh_id','anhdaidien','tiente','dvdt','user_id','chitiet','maxp_id'
+        'id','tieude','gia','dientich','vitri','maqh_id','matinh_id','anhdaidien','tiente','dvdt','user_id','chitiet','maxp_id','slug','status'
     ];
     //relationship
     public function user(){
@@ -29,7 +29,9 @@ class Tinmuaban extends Model
     //end relationship
 
     public static function createTinmuaban($data){
-      
+        if($data['anh'] == ""){
+            $data['anh'] = env('APP_URL')."/defautl.jpg";
+        }
         $tinmuaban = Tinmuaban::create([
             'tieude'=>$data['tieude'],
             'gia'=>$data['gia'],
@@ -42,7 +44,9 @@ class Tinmuaban extends Model
             'anhdaidien'=>$data['anh'],
             'user_id'=>$data['user_id'],
             'chitiet'=>$data['description'],
-            'maxp_id'=>$data['xaphuong']
+            'maxp_id'=>$data['xaphuong'],
+            'slug'=>$data['slug'],
+            'status'=>0
         ]);
         
         return new TinmuabanResource($tinmuaban);

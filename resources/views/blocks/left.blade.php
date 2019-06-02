@@ -32,7 +32,7 @@
               <a href="/admin/tintucnhadat/1"><i class="ion ion-ios-paper"></i><span>Tin tức dự án</span></a>
             </li>
             <li id="phanloaitin">
-                    <a href="simple.html"><i class="ion ion-ios-barcode"></i><span>Phân loại tin tức</span></a>
+                    <a href="/admin/loaiTin"><i class="ion ion-ios-barcode"></i><span>Phân loại tin tức</span></a>
             </li>
             <li id="quanhuyen">
                     <a href="/admin/quanhuyen"><i class="ion ion-ios-location-outline"></i><span>Quận huyện Hà Nội</span></a>

@@ -11,9 +11,6 @@
 |
 */
 
-$router->get('/', function () use ($router) {
-    return $router->app->version();
-});
 $router->group(['prefix' => 'api'], function () use ($router) {
     $router->post('/register', 'RegisterController@register');
     $router->post('/login', 'LoginController@login');
@@ -39,7 +36,7 @@ $router->group(['prefix' => 'api'], function () use ($router) {
         $router->group(['prefix' => 'tintuc'], function () use ($router) {
             $router->post('/themtin','HomeController@createNews');
             $router->group(['middleware' => ['edit']], function () use ($router) {
-                $router->post('/editTintuc','LoginController@postEditTintuc');
+                $router->post('/editTintuc','HomeController@postEditTintuc');
             });
             $router->group(['middleware' => ['edit1']], function () use ($router) {
                 $router->post('/editTinmua','HomeController@postEditTinmua');
@@ -51,18 +48,14 @@ $router->group(['prefix' => 'api'], function () use ($router) {
     });
 });
 $router->group(['prefix' => 'admin'], function () use ($router) {
-    $router->group(['middleware' => 'login'], function () use ($router) {
-        $router->get('login', 'AuthController@index');
-        $router->get('register', 'AuthController@register');
-    }); 
-    
+    $router->get('login', 'AuthController@index');
+    $router->get('register', 'AuthController@register');
     
     $router->group(['middleware' => 'admin'], function () use ($router) {
         $router->get('/home','HomeController@index');
-        
-        $router->get('quanhuyen', function ()  {
-            return view('contents.quanhuyen', ['title' => 'Page quanhuyen','id'=>'quanhuyen']);
-        });
+
+        $router->get('quanhuyen','QuanhuyenController@getDS');
+
         $router->get('middleware', function ()  {
             return view('contents.middlewareFail', ['title' => 'Authentication fail','id'=>'quanlyuser']);
         });
@@ -89,7 +82,18 @@ $router->group(['prefix' => 'admin'], function () use ($router) {
         $router->group(['middleware' => ['edit1']], function () use ($router) {
             $router->get('editTinmua/{id}','HomeController@getEditTinmua');
         });                 
-
+        $router->get('loaiTin','HomeController@loaiTin');
         $router->get('tailieu','HomeController@getTailieu');
+        $router->post('themXaphuong','HomeController@createXaphuong');
+        $router->post('themQuanhuyen','HomeController@createQuanhuyen');
+        $router->post('themTinh','HomeController@createTinh');
+        $router->post('themLoai','HomeController@createThemloai');
     });
 });
+// Front end
+$router->get('/','MainController@index');
+$router->get('/muaban-bds/{slug}','MainController@muabanByQuanhuyen');
+$router->get('/muaban/{slug}','MainController@muabanByXaPhuong');
+$router->get('/tinban/{slug}','MainController@getTinban');
+$router->get('/loaitin/{slug}','MainController@getTinByLoaiTin');
+$router->get('/tintuc/{slug}','MainController@getTintuc');

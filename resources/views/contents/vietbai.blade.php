@@ -25,7 +25,7 @@ $user = json_decode($user);
                     </div>
                     <div class="card-body">
                         <div class="form-group">
-                            <label>Lựa chọn dạng bài viết <span class="require">*</span></label><br>
+                            <label>Lựa chọn dạng bài viết <span class="require">*(Lựa chọn 1 trong 2 lựa chọn. Nếu bài viết dạng mua, bán, thuê thì chọn loại đầu tiên)</span></label><br>
                             <label class="radio-inline"><input type="radio" class="check" name="loaibai" value =1 required>Tin mua bán nhà đất</label>
                             <label class="radio-inline"><input type="radio"  class="check" name="loaibai" value =2 required>Tin tức nhà đất</label>
                         </div>
@@ -85,13 +85,13 @@ $user = json_decode($user);
                              </div>                                                      
                         </div>
                         <div class="form-group">
-                            <label>Tiêu đề <span class="require">*</span></label>
+                            <label>Tiêu đề <span class="require">*(Tiêu đề phù hợp là khoản 50-100 kí tự sẽ tốt cho SEO)</span></label>
                             <input type="text" name="tieude" class="form-control" required>
                             <input type="hidden" name="anh" id="anh" value="" />
                             <input type="hidden" name="user_id"  value="<?php echo $user->id;?>" />
                         </div>
                         <div class="form-group">
-                            <label>Chi tiết <span class="require">*</span></label>
+                            <label>Chi tiết <span class="require">*(Không nên để ảnh đầu tiên. Hình ảnh hiển thị ở bên ngoài sẽ không đep.)</span></label>
                             <textarea class="summernote-simple" name="description" required ></textarea>
                         </div>
                     </div>
@@ -101,14 +101,14 @@ $user = json_decode($user);
                 <div class="card text-center">
                     <div class="card-body">
                         <div class="form-group">
-                            <label>Ảnh đại diện bài viết <span class="require">*</span></label>
+                            <label>Ảnh đại diện bài viết <span class="require">*(Nên Chọn ảnh khách thay vì ảnh mặc định - Nội dung web sẽ nhàm chán)</span></label>
                             <div class="avatar-upload">
                                 <div class="avatar-edit">
                                     <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" name="anhdaidien"/>
                                     <label for="imageUpload"></label>
                                 </div>
                                 <div class="avatar-preview">
-                                    <div id="imagePreview" style="background-image: url(http://i.pravatar.cc/500?img=7);">
+                                    <div id="imagePreview" style="background-image: url({{asset('../avatars/default.jpg')}});">
                                     </div>
                                 </div>
                             </div>
