@@ -4,7 +4,7 @@
     <div class="col-sm-12 col-md-12 col-lg-12 col-xs-12">
         <p id="link-page-title">
             <span>
-                <a href="nhadatachau.html">Trang chủ</a>  →  <span>{{$loaitin}}</span>
+                <a href="nhadatachau.html">Trang chủ</a>  →  <span>{{$tin}}</span>
             </span>
         </p>
     </div>

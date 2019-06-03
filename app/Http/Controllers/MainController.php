@@ -66,11 +66,11 @@ class MainController extends Controller
 
     public function getTintuc($slug){
         $tindetail = Tintuc::where('slug',$slug) ->first();
-        $loaitin = Loaitin::where('id',$tindetail->loaitin_id)->pluck('Tenloaitin')->first();
+        $tin = Loaitin::where('id',$tindetail->loaitin_id)->pluck('Tenloaitin')->first();
 
         $tintuc = Tintuc::where('loaitin_id',$tindetail->loaitin_id)
         ->where('id','<>',$tindetail->id)
         ->paginate(12);
-        return view('contents.frontend.detailTin',\compact('tintuc','tindetail','loaitin'));
+        return view('contents.frontend.detailTin',\compact('tintuc','tindetail','tin'));
     }
 }
