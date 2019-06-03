@@ -6,7 +6,7 @@
                         <img src="{{asset('../logo.jpg')}}">
                     </a>
                 </div>
-                <div class="col-lg-5 col-md-3 col-sm-4 hidden-xs header-ads">
+                <div class="col-lg-5 col-md-3 col-sm-4 hidden-xs">
                     <div class="search-header hidden-xs">
                         <form action="">
                             <input type="text" class="form-control field" name="s" id="s" placeholder="tìm kiếm nhà đất...">
@@ -14,7 +14,7 @@
                         </form>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-5 col-sm-4 hidden-xs header-ads">
+                <div class="col-lg-4 col-md-5 col-sm-4 hidden-xs">
                     <div class="call-header">
                         <img src="{{asset('../phone.png')}}">
                         <span class="title-phone">Miễn Phí Mô Giới</span>
