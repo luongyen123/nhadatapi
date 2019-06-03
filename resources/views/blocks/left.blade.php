@@ -25,12 +25,12 @@
             <li id="tinmuaban">
               <a href="/admin/tinmuaban"><i class="ion ion-card"></i><span>Tin mua bán</span></a>
             </li>
-            @foreach($loaitin as $pl)
+            @foreach($theloai as $pl)
             <li id="tintucduan{{$pl->id}}">
               <a href="/admin/tintucnhadat/{{$pl->id}}"><i class="ion ion-ios-paper"></i><span>{{$pl->Tenloaitin}}</span></a>
             </li>
             @endforeach
-            <li id="loaitin">
+            <li id="theloai">
               <a href="/admin/loaiTin"><i class="ion ion-ios-location-outline"></i><span>Loại tin tức</span></a>
             </li>
             <li id="quanhuyen">

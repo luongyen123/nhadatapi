@@ -29,7 +29,7 @@
             <li class="active">
                 <a href="/"  class="header">Trang chủ</a>
             </li>
-            @foreach($loaitin as $pl)
+            @foreach($theloai as $pl)
             <li class="">
                 <a href="/loaitin/{{$pl->slug}}" class="header">{{$pl->Tenloaitin}}</a>
             </li>

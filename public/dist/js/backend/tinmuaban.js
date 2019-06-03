@@ -43,8 +43,9 @@ $(document).ready(function(){
     $("input[type='radio'].check").click(function() {
         if($(this).is(':checked')) {
             if ($(this).val() == 1) {
+                console.log($(this).val());
                 $("#diachi").css('display','block');           
-                $("#grloaitin").css('display','none');
+                $("#loaitin").css('display','none');
                 //validate input rewuried cho diachi
                 $('#tinhthanh').attr('required', 'required');
                 $('#quanhuyenTP').attr('required', 'required');
@@ -55,8 +56,9 @@ $(document).ready(function(){
                 //bo required cho loaitin
                 $('#loaitinchon').removeAttr('required');
             }else{
+                console.log($("#loaitin").css('display','block'));
                 $("#diachi").css('display','none');
-                $("#grloaitin").css('display','block');
+                $("#loaitin").css('display','block');
 
                 //validate input required cho loai tin
                 $('#loaitinchon').attr('required', 'required');

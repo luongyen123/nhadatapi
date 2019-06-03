@@ -214,7 +214,7 @@ class HomeController extends Controller
 
     public function loaiTin(){
         $loaitin = Loaitin::paginate();
-        $id="phanloaitin";
+        $id="theloai";
         $title="Phân loại tin tức";
         return view('contents.loaiTin',\compact(['loaitin','title','id']));
     }

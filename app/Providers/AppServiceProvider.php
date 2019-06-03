@@ -16,7 +16,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         
-        view()->share('loaitin', Loaitin::paginate());
+        view()->share('theloai', Loaitin::paginate());
         view()->share('gialam', $this->getLoai("Gia Lâm"));
         view()->share('longbien', $this->getLoai("Long Biên"));
     }
