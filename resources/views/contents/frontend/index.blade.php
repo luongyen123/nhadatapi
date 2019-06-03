@@ -1,6 +1,5 @@
 @extends('layouts.frontend.layout')
 @section('css')
-<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/8229ED9D-4135-FC4F-AE2F-384AA3546900/main.js" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="https://gc.kis.v2.scr.kaspersky-labs.com/B58CC401-E43D-004D-858E-1B3C900229C4/abn/main.css"/>
 @endsection
 @section('content')   
 <div id="myCarousel" class="carousel slide" data-ride="carousel">

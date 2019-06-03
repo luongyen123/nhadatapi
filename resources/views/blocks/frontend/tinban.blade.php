@@ -2,9 +2,9 @@
         @foreach($tinban as $tin)
         <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-commom">
             <div class="thumbnail">
-                <a href="/tinban/{{$tin->slug}}"><img src="{{$tin->anhdaidien}}" alt="" /></a>
+                <a href="/tinban/{{$tin->slug}}"><img src="{{$tin->anhdaidien}}" alt="{{$tin->slug}}" style="height:187px;/></a>
                 <div class="caption">
-                    <h3 class="tintuc-title">
+                    <h3 class="tintuc-title" style="overflow:hidden;height: 65px">
                         <a href="/tinban/{{$tin->slug}}">{{$tin->tieude}}</a>
                     </h3>
                     <ul class="list-tintuc">
