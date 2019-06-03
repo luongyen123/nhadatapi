@@ -64,14 +64,10 @@ class HomeController extends Controller
         return view('contents.tinmuaban',\compact(['tinmuaban','title','id']));
     }
     public function getTintucnhadat($idTin){
-       
-        if($idTin == 1){
-            $title ="Tin tức dự án";
-            $id = "tintucduan";
-        }else{
-            $title ="Tin tức nhà đất";
-            $id = "tintucnhadat";
-        }   
+        $loaitin = Loaitin::findorFail($idTin);       
+        $title = $loaitin->Tenloaitin;
+        $id = "tintucduan".$idTin;
+          
         $tintucs = Tintuc::where('loaitin_id',$idTin)->paginate(10);
         return view('contents.tintucnhadat',\compact(['tintucs','title','id']));
     }

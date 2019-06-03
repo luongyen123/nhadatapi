@@ -88,6 +88,7 @@ $router->group(['prefix' => 'admin'], function () use ($router) {
         $router->post('themQuanhuyen','HomeController@createQuanhuyen');
         $router->post('themTinh','HomeController@createTinh');
         $router->post('themLoai','HomeController@createThemloai');
+       
     });
 });
 // Front end

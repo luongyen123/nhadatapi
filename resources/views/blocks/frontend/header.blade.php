@@ -29,15 +29,12 @@
             <li class="active">
                 <a href="/"  class="header">Trang chủ</a>
             </li>
+            @foreach($loaitin as $pl)
             <li class="">
-                <a href="/loaitin/du-an-phan-phoi" class="header">Dự án phân phối</a>
+                <a href="/loaitin/{{$pl->slug}}" class="header">{{$pl->Tenloaitin}}</a>
             </li>
-            <li>
-                <a href="/loaitin/phong-thuy-nha-dat" class="header">Phong thủy nhà đất</a>
-            </li>
-            <li>
-                <a href="/loaitin/tin-tuc-nha-dat" class="header">Tin tức nhà đất</a>
-            </li>
+            
+            @endforeach
             <li>
                 <a href="/loaitin/lienhe" class="header">Liên hệ</a>
             </li>

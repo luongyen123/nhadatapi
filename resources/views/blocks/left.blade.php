@@ -25,14 +25,13 @@
             <li id="tinmuaban">
               <a href="/admin/tinmuaban"><i class="ion ion-card"></i><span>Tin mua bán</span></a>
             </li>
-            <li id="tintucnhadat">
-              <a href="/admin/tintucnhadat/2"><i class="ion ion-ios-world"></i><span>Tin tức nhà đất</span></a>
+            @foreach($loaitin as $pl)
+            <li id="tintucduan{{$pl->id}}">
+              <a href="/admin/tintucnhadat/{{$pl->id}}"><i class="ion ion-ios-paper"></i><span>{{$pl->Tenloaitin}}</span></a>
             </li>
-            <li id="tintucduan">
-              <a href="/admin/tintucnhadat/1"><i class="ion ion-ios-paper"></i><span>Tin tức dự án</span></a>
-            </li>
-            <li id="phanloaitin">
-                    <a href="/admin/loaiTin"><i class="ion ion-ios-barcode"></i><span>Phân loại tin tức</span></a>
+            @endforeach
+            <li id="loaitin">
+              <a href="/admin/loaiTin"><i class="ion ion-ios-location-outline"></i><span>Loại tin tức</span></a>
             </li>
             <li id="quanhuyen">
                     <a href="/admin/quanhuyen"><i class="ion ion-ios-location-outline"></i><span>Quận huyện Hà Nội</span></a>
