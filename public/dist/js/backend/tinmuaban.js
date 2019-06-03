@@ -44,7 +44,7 @@ $(document).ready(function(){
         if($(this).is(':checked')) {
             if ($(this).val() == 1) {
                 $("#diachi").css('display','block');           
-                $("#loaitin").css('display','none');
+                $("#grloaitin").css('display','none');
                 //validate input rewuried cho diachi
                 $('#tinhthanh').attr('required', 'required');
                 $('#quanhuyenTP').attr('required', 'required');
@@ -56,7 +56,7 @@ $(document).ready(function(){
                 $('#loaitinchon').removeAttr('required');
             }else{
                 $("#diachi").css('display','none');
-                $("#loaitin").css('display','block');
+                $("#grloaitin").css('display','block');
 
                 //validate input required cho loai tin
                 $('#loaitinchon').attr('required', 'required');

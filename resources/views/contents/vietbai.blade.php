@@ -117,7 +117,7 @@ $user = json_decode($user);
                 </div>
                 <div class="card" >
                     <div class="card-body">
-                        <div class="form-group" id="loaitin">
+                        <div class="form-group" id="grloaitin">
                             <label>Loại tin</label>
                             <select class="form-control" name="loaitin" id="loaitinchon">
                                 <option value="">---Lựa chọn loại tin tức---</option>
