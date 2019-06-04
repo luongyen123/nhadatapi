@@ -31,6 +31,12 @@ $('#loginform').on('submit', function(e){
             alert(data.message);
             
         }
+        if(data.status == 404){
+            alert(data.message);
+        }
+        if(data.status == 413){
+            alert(data.message);
+        }
 
     });// if getting done then ca
 });
