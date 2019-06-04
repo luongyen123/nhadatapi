@@ -21,13 +21,10 @@ class AuthMiddleware
 
     public function handle($request, Closure $next,$guard = null)
     {
-        $token = $request->cookie('token');
-        if($token == null || $token == "" || $token == "null"){
+       
+        if(!(isset($_COOKIE['token'])) || $_COOKIE['token'] == null || $_COOKIE['token'] == "" || $_COOKIE['token'] == "null"){
             return redirect('/admin/login');
         }
-        return $next($request);
-        
-        
-
+        return $next($request);            
     }
 }

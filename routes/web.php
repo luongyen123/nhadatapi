@@ -28,6 +28,7 @@ $router->group(['prefix' => 'api'], function () use ($router) {
 
     $router->post('getTinmuaban','HomeController@getTinmuaban');
     $router->post('/getUser','LoginController@getUser');
+    $router->post('/logout','LoginController@logout');
 
     $router->group(['middleware' => 'jwt.auth'], function () use ($router) {
         $router->group(['prefix' => 'media'], function () use ($router) {
@@ -48,9 +49,11 @@ $router->group(['prefix' => 'api'], function () use ($router) {
     });
 });
 $router->group(['prefix' => 'admin'], function () use ($router) {
-    $router->get('login', 'AuthController@index');
-    $router->get('register', 'AuthController@register');
-    
+    $router->group(['middleware' => 'login'], function () use ($router) {      
+        $router->get('login', 'AuthController@index');
+        $router->get('register', 'AuthController@register');
+    });
+
     $router->group(['middleware' => 'admin'], function () use ($router) {
         $router->get('/home','HomeController@index');
 

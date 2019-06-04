@@ -15,10 +15,8 @@ class GuestMiddleware
      */
     public function handle($request, Closure $next)
     {       
-        if(isset($_COOKIE['token'])){
-            if($_COOKIE['token'] != null ||$_COOKIE['token'] != "" ||$_COOKIE['token'] != "null"){
-                return redirect('/admin/home');             
-            }
+        if((isset($_COOKIE['token'])) && ($_COOKIE['token'] != null && $_COOKIE['token'] !="null")){
+            return redirect('/admin/home');
         }
         return $next($request);
     }
