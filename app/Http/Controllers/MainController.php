@@ -2,15 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Info;
+use App\Tintuc;
+use App\Loaitin;
 use App\Xaphuong;
 use App\Quanhuyen;
 use App\Tinmuaban;
+use App\Traits\ApiResponser;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Loaitin;
-use App\Tintuc;
+use Illuminate\Contracts\Session\Session;
 
 class MainController extends Controller
 {
+    use ApiResponser;
     /**
      * Create a new controller instance.
      *
@@ -73,4 +78,9 @@ class MainController extends Controller
         ->paginate(12);
         return view('contents.frontend.detailTin',\compact('tintuc','tindetail','tin'));
     }
+
+    public function addInfo(Request $request){
+        $info = Info::createNews($request->all());
+        return $this->successResponseMessage($info,200,"Tao thanh cong");
+    } 
 }

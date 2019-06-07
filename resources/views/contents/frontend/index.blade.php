@@ -56,4 +56,57 @@
         @include('blocks.frontend.left')
    
 </div>
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-md">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title text-uppercase text-center">Đăng kí mua bán nhà đất</h4>
+      </div>
+      <form action="" method="POST" id="addInfo">
+        <div class="modal-body">
+          <p>Nhà đất Á Châu - Cam kết bán đúng giá, hoàn toàn miễn phí với người mua</p>
+          <p>Xin cảm ơn!</p>         
+          <div class="form-group">
+            <input type="text" class="form-control record" id="hoten" name="hoten" placeholder="Họ và tên" required>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control record" id="sdt" name="sdt" placeholder="Số điện thoại của bạn" required>
+          </div>
+          <div class="form-group">
+            <label  class="control-label">Cần mua hoặc bán</label><br>
+            <div class="col-md-6">
+                <label><input type="checkbox" name="nhucau" value="muadat"> Mua đất</label>
+            </div>
+            <div class="col-md-6">
+                <label><input type="checkbox" name="nhucau" value="bandat"> Bán đất</label>
+            </div>
+            
+          </div> 
+          <div class="form-group">
+              <label for="comment">Ghi chú:</label>
+              <textarea class="form-control" rows="5" id="comment" name="ghichu" placeholder="Tôi cần lô đất khu 31ha Trâu Quỳ. Liên hệ tôi qua số 0912719896" required></textarea>
+            </div>       
+        </div>
+        <div class="modal-footer">
+            <button type="submit" class="btn btn-default">Submit</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        
+        </div>
+      </form>
+    </div>
+
+  </div>
+</div>
+@endsection
+@section('js')
+<script>
+  $(window).load(function(){        
+    $('#myModal').modal('show');
+     }); 
+</script>
+<script src="{{asset('../dist/js/backend/jquery.validate.min.js')}}"></script>
+<script src="{{asset('../dist/js/backend/additional-methods.min.js')}}"></script>
+<script src = "{{asset('../dist/js/addInfo.js')}}"></script>
 @endsection

@@ -29,6 +29,7 @@ $router->group(['prefix' => 'api'], function () use ($router) {
     $router->post('getTinmuaban','HomeController@getTinmuaban');
     $router->post('/getUser','LoginController@getUser');
     $router->post('/logout','LoginController@logout');
+    $router->post('addInfo','MainController@addInfo');
 
     $router->group(['middleware' => 'jwt.auth'], function () use ($router) {
         $router->group(['prefix' => 'media'], function () use ($router) {

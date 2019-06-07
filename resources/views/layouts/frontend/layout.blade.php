@@ -19,8 +19,8 @@
 		</div>
 
 		<!-- jQuery -->
-        <script src="{{asset('../dist/modules/jquery.min.js')}}"></script>
+        <script src="{{asset('../dist/js/jquery.js')}}"></script>
 		<!-- Bootstrap JavaScript -->
-        <script src="{{asset('../dist/modules/bootstrap/js/bootstrap.min.js')}}"></script>	</body>
+        <script src="{{asset('../dist/js/bootstrap.min.js')}}"></script>	</body>
         @yield('js')
 </html>

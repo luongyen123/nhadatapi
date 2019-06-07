@@ -3,7 +3,7 @@
             <div class="row">
                 <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
                     <a href="/">
-                        <img src="{{asset('../logo.jpg')}}">
+                        <img src="{{asset('../logo.png')}}">
                     </a>
                 </div>
                 <div class="col-lg-5 col-md-3 col-sm-4 hidden-xs">
@@ -18,10 +18,11 @@
                     <div class="call-header">
                         <img src="{{asset('../phone.png')}}">
                         <span class="title-phone">Miễn Phí Mô Giới</span>
-                        <span class="hotline-phone">01655302396</span>
-                    </div>
+                        <span class="hotline-phone">0912719896</span>
+                    </div>                  
                 </div>
             </div>
+            
         </div>
 </header>
 <nav class="navbar header text-uppercase ">

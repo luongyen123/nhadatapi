@@ -1,5 +1,5 @@
 .header-top img{
-	width: 75px;
+	width: 300px;
 	height: auto;
 }
 .search-header button{
@@ -372,4 +372,14 @@ margin-bottom: 5px;
 .navbar-nav>li {
     float: left;
     margin-right: 20px;
+}
+.modal-title{
+    font-weight: 600;
+    color: #2f6baa;
+}
+.record{
+    padding: 20px;
+}
+.error{
+    color: red;
 }
