@@ -148,7 +148,7 @@ class HomeController extends Controller
     public function deleteTintuc($id){
         $tintuc = Tintuc::findorFail($id);
         $tintuc->delete();
-       return \redirect('admin/getUser');
+       return redirect()->route('admin/tintucnhadat/', ['id' => $tintuc->loaitin_id]);
     }
     public function deleteTinmua($id){
         $tinmua = Tinmuaban::findorFail($id);
