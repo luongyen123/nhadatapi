@@ -6,7 +6,7 @@
                 </h3>
                 <p>Địa chỉ: Số T97A, Lô B4 - 23, Khu đô 31HA,<br>Công Ty Cổ phần Tư Vấn
                         Quy hoạch & Phát Triển Công nghệ Á Châu Hà Nội</p>
-                <p>Hotline: 01655302396 - 02436760659 - 0868247959</p>
+                <p>Hotline: 0912719896</p>
                 <p>Email: nhadatachau2018@gmail.com</p>
                 <p>Website: http://nhadatachau.vn/</p>
                 <p>Fanpage: https://www.facebook.com/nhadatachau333/</p>

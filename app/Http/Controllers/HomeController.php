@@ -145,7 +145,16 @@ class HomeController extends Controller
         $user->delete();
        return \redirect('admin/getUser');
     }
-
+    public function deleteTintuc($id){
+        $tintuc = Tintuc::findorFail($id);
+        $tintuc->delete();
+       return \redirect('admin/getUser');
+    }
+    public function deleteTinmua($id){
+        $tinmua = Tinmuaban::findorFail($id);
+        $tinmua->delete();
+       return \redirect('admin/tinmuaban');
+    }
     public function getTailieu(){
         $title ="Tai lieu he thong";
         $id = "tailieu";

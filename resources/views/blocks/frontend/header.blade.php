@@ -17,7 +17,7 @@
                 <div class="col-lg-4 col-md-5 col-sm-4 hidden-xs">
                     <div class="call-header">
                         <img src="{{asset('../phone.png')}}">
-                        <span class="title-phone">Miễn Phí Mô Giới</span>
+                        <span class="title-phone">Hoàn toàn miễn phí tư vấn</span>
                         <span class="hotline-phone">0912719896</span>
                     </div>                  
                 </div>

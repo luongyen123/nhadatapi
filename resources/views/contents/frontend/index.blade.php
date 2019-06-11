@@ -66,7 +66,7 @@
       </div>
       <form action="" method="POST" id="addInfo">
         <div class="modal-body">
-          <p>Nhà đất Á Châu - Cam kết bán đúng giá, hoàn toàn miễn phí với người mua</p>
+          <p>Nhà đất Á Châu - Cam kết bán đúng giá, hoàn toàn miễn phí tư vấn</p>
           <p>Xin cảm ơn!</p>         
           <div class="form-group">
             <input type="text" class="form-control record" id="hoten" name="hoten" placeholder="Họ và tên" required>

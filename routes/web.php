@@ -81,10 +81,12 @@ $router->group(['prefix' => 'admin'], function () use ($router) {
         //xacc thuc quyen edit voi tin tuc
         $router->group(['middleware' => ['edit']], function () use ($router) {
             $router->get('editTintuc/{id}','HomeController@getEditTintuc');
+            $router->get('deleteTintuc/{id}','HomeController@deleteTintuc');
         });
         //quyen edit tinmua ban
         $router->group(['middleware' => ['edit1']], function () use ($router) {
             $router->get('editTinmua/{id}','HomeController@getEditTinmua');
+            $router->get('deleteTinmua/{id}','HomeController@deleteUser');
         });                 
         $router->get('loaiTin','HomeController@loaiTin');
         $router->get('tailieu','HomeController@getTailieu');
