@@ -5,7 +5,7 @@
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <!-- Wrapper for slides -->
         <div class="carousel-inner">
-          
+          @if($banner_first != null)
           <div class="item active">
             <img src="{{$banner_first->media}}" alt="Los Angeles" style="width:100%;">
             <div class="carousel-caption">
@@ -13,6 +13,7 @@
               <p>LA is always so much fun!</p>
             </div>
           </div>
+          @endif
           @foreach($banner as $value)
           <div class="item">
             <img src="{{$value->media}}" alt="Chicago" style="width:100%;">

@@ -32,10 +32,16 @@ class MainController extends Controller
         ->orderBy('created_at','DESC')
         ->paginate(12);
         $banner_first = Banner::where('status',0)->orderBy('created_at','DESC')->first();
-        $banner = Banner::where('status',0)
-        ->where('id','<>',$banner_first->id)
-        ->orderBy('created_at','DESC') 
-        ->paginate(12);      
+        if($banner_first != null){
+            $banner = Banner::where('status',0)
+            ->where('id','<>',$banner_first->id)
+            ->orderBy('created_at','DESC') 
+            ->paginate(12);
+        }else{
+            $banner =[];
+            $banner_first = null;
+        }
+              
         return view('contents.frontend.index',\compact('tinban','banner','banner_first'));
     }
     
