@@ -16,8 +16,14 @@
                  <div class="body-footer"></div>
                 
                 <ul class="menu-footer">
+                    <?php $i=0;?>
                     @foreach($gialam as $value)
-                        <li> <a href="/muaban/{{$value->slug}}"> Mua bán Nhà Đất {{$value->tenxa}}</a></li>
+                        <?php $i++?>
+                        @if($i<7)
+                            <li> <a href="/muaban/{{$value->slug}}"> Mua bán Nhà Đất {{$value->tenxa}}</a></li>
+                        @else
+                            @break
+                        @endif
                     @endforeach
                     
                 </ul>
