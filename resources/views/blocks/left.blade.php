@@ -42,5 +42,8 @@
             <li id="tailieu">
                     <a href="/admin/tailieu"><i class="ion ion-ios-book"></i><span>Quản lý tai lieu</span></a>
             </li>
+            <li id="banner">
+                <a href="/admin/banner"><i class="ion ion-ios-book"></i><span>Quản lý banner</span></a>
+        </li>
         </aside>
       </div>

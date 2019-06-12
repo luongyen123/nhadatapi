@@ -67,13 +67,15 @@ $router->group(['prefix' => 'admin'], function () use ($router) {
         $router->get('tinmuaban','HomeController@getTinmuaban');
         //Get tin tuc - backend
         $router->get('tintucnhadat/{id}','HomeController@getTintucnhadat');
-
+        $router->get('banner','HomeController@getBanner');
         //quyen admin vaf editor
         $router->group(['middleware' => ['isAdmin']], function () use ($router) {
             $router->get('getUser','HomeController@getUser');
             $router->get('active/{id}','HomeController@activeUser');
             $router->get('userEdit/{id}','HomeController@editUser');
             $router->get('delete/{id}','HomeController@deleteUser');
+            $router->post('themBanner','HomeController@themBanner');
+            $router->get('activeBanner/{id}','HomeController@activeBanner');
         });
         $router->get('vietbai', function ()  {
             return view('contents.vietbai', ['title' => 'Viết bài mới','id'=>'vietbai']);
@@ -85,8 +87,9 @@ $router->group(['prefix' => 'admin'], function () use ($router) {
         });
         //quyen edit tinmua ban
         $router->group(['middleware' => ['edit1']], function () use ($router) {
+            $router->get('activeTinmua/{id}','HomeController@activeTinmua');
             $router->get('editTinmua/{id}','HomeController@getEditTinmua');
-            $router->get('deleteTinmua/{id}','HomeController@deleteUser');
+            $router->get('deleteTinmua/{id}','HomeController@deleteTinmua');
         });                 
         $router->get('loaiTin','HomeController@loaiTin');
         $router->get('tailieu','HomeController@getTailieu');

@@ -38,7 +38,7 @@
                             <td>{{$tintuc->user->name}}</td>
                             <td>
                                 <a class="btn btn-primary btn-action mr-1" data-toggle="tooltip" title="Edit" href="/admin/editTintuc/{{$tintuc->id}}"><i class="ion ion-edit"></i></a>
-                                <a class="btn btn-danger btn-action" data-toggle="tooltip" title="Delete" href=""><i class="ion ion-trash-b"></i></a>
+                                <a class="btn btn-danger btn-action"  title="Delete" href="/admin/deleteTintuc/{{$tintuc->id}}" onclick="return confirm('Ban chac chan muon xoa?');"><i class="ion ion-trash-b"></i></a>                            </td>
                             </td>
                         </tr>
                         @endforeach

@@ -2,18 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Tinh;
 use App\User;
+use App\Banner;
 use App\Tintuc;
+use App\Loaitin;
 use App\Xaphuong;
+use App\Quanhuyen;
 use App\Tinmuaban;
 use App\Traits\ApiResponser;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Resources\UserResource;
 use App\Http\Resources\TinmuabanCollection;
-use App\Quanhuyen;
-use App\Tinh;
-use App\Loaitin;
 
 class HomeController extends Controller
 {
@@ -148,7 +149,7 @@ class HomeController extends Controller
     public function deleteTintuc($id){
         $tintuc = Tintuc::findorFail($id);
         $tintuc->delete();
-       return \redirect('admin/getUser');
+       return \redirect('admin/tintucnhadat/'.$tintuc->loaitin_id);
     }
     public function deleteTinmua($id){
         $tinmua = Tinmuaban::findorFail($id);
@@ -232,5 +233,37 @@ class HomeController extends Controller
         $request->request->set('slug',$slug);
         $loaitin = Loaitin::createNews($request->all());
         return redirect('/admin/loaiTin');
+    }
+    public function activeTinmua($id){
+        $tinmuaban = Tinmuaban::findorFail($id);
+        if($tinmuaban->status ==1){
+            $tinmuaban->status = 0;
+        }else{
+            $tinmuaban->status = 1;
+        }
+        $tinmuaban->save();  
+       return \redirect('admin/tinmuaban');
+    }
+    public function getBanner(){
+        $title ="Quản lý banner";
+        $id = "banner";
+
+        $banner = Banner::paginate(10);       
+
+        return view('contents.banner',\compact(['banner','title','id']));
+    }
+    public function themBanner(Request $request){
+        $banner = Banner::createNews($request->all());
+        return redirect('/admin/banner');
+    }
+    public function activeBanner($id){
+        $banner = Banner::findorFail($id);
+        if($banner->status ==1){
+            $banner->status = 0;
+        }else{
+            $banner->status = 1;
+        }
+        $banner->save();  
+       return \redirect('admin/banner');
     }
 }

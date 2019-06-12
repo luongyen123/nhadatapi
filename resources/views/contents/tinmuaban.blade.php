@@ -28,11 +28,13 @@
                             <th>Diện tích</th>
                             <th>Vị trí</th>
                             <th>Người đăng</th>
+                            <th>Trạng thái</th>
                             <th>Hành động</th>
                         </tr>
                     </thead>
 
                     <tbody>
+                        <?php $i=1;$status=""?>
                         @foreach($tinmuaban as $tinban)                     
                         <tr>
                             <td>
@@ -46,10 +48,10 @@
                             </td>
                             <td> {{$tinban->vitri}}</td>
                             <td>{{$tinban->user->name}}</td>
+                            <td><a href = "/admin/activeTinmua/{{$tinban->id}}" class=" btn-action badge @if($tinban->status == 0){{'badge-success'}} <?php $status='Đang bán'?> @else {{'badge-danger'}} <?php $status='Đã bán' ?> @endif">{{$status}}</a></td>
                             <td>
                                 <a class="btn btn-primary btn-action mr-1" data-toggle="tooltip" title="Edit" href="/admin/editTinmua/{{$tinban->id}}"><i class="ion ion-edit"></i></a>
-                                <a class="btn btn-danger btn-action" data-toggle="tooltip" title="Delete"><i class="ion ion-trash-b"></i></a>
-                            </td>
+                                <a class="btn btn-danger btn-action"  title="Delete" href="/admin/deleteTinmua/{{$tinban->id}}" onclick="return confirm('Ban chac chan muon xoa?');"><i class="ion ion-trash-b"></i></a>                            </td>
                         </tr>
                         @endforeach
                     </tbody>

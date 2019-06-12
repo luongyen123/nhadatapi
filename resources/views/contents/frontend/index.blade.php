@@ -5,35 +5,31 @@
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <!-- Wrapper for slides -->
         <div class="carousel-inner">
-
+          
           <div class="item active">
-            <img src="{{asset('../banner.jpg')}}" alt="Los Angeles" style="width:100%;">
+            <img src="{{$banner_first->media}}" alt="Los Angeles" style="width:100%;">
             <div class="carousel-caption">
               <h3>Los Angeles</h3>
               <p>LA is always so much fun!</p>
             </div>
           </div>
-
+          @foreach($banner as $value)
           <div class="item">
-            <img src="{{asset('../banner.jpg')}}" alt="Chicago" style="width:100%;">
+            <img src="{{$value->media}}" alt="Chicago" style="width:100%;">
             <div class="carousel-caption">
               <h3>Chicago</h3>
               <p>Thank you, Chicago!</p>
             </div>
           </div>
-        
-          <div class="item">
-            <img src="{{asset('../banner.jpg')}}" alt="New York" style="width:100%;">
-            <div class="carousel-caption">
-              <h3>New York</h3>
-              <p>We love the Big Apple!</p>
-            </div>
-          </div>		  
+          @endforeach	  
           <!-- Indicators -->
           <ol class="carousel-indicators">
               <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-              <li data-target="#myCarousel" data-slide-to="1"></li>
-              <li data-target="#myCarousel" data-slide-to="2"></li>
+              <?php $i=1;?>
+              @foreach($banner as $value)
+                <li data-target="#myCarousel" data-slide-to="{{$i}}"></li>
+                <?php $i++;?>
+              @endforeach
         </ol>
  </div>
 
