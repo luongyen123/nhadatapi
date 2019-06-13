@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Info;
+use App\Banner;
 use App\Tintuc;
 use App\Loaitin;
 use App\Xaphuong;
@@ -27,14 +28,30 @@ class MainController extends Controller
     }
 
     public function index(){
-        $tinban = Tinmuaban::paginate(12);        
-        return view('contents.frontend.index',\compact('tinban'));
+        $tinban = Tinmuaban::where('status',0)
+        ->orderBy('created_at','DESC')
+        ->paginate(12);
+        $banner_first = Banner::where('status',0)->orderBy('created_at','DESC')->first();
+        if($banner_first != null){
+            $banner = Banner::where('status',0)
+            ->where('id','<>',$banner_first->id)
+            ->orderBy('created_at','DESC') 
+            ->paginate(12);
+        }else{
+            $banner =[];
+            $banner_first = null;
+        }
+              
+        return view('contents.frontend.index',\compact('tinban','banner','banner_first'));
     }
     
     public function muabanByQuanhuyen($slug){
         $quanhuyen_id = Quanhuyen::where('slug',$slug)->pluck('id')->first();
         $title = Quanhuyen::where('slug',$slug)->pluck('tenqh')->first();
-        $tinban = Tinmuaban::where('maqh_id',$quanhuyen_id)->paginate(12);
+        $tinban = Tinmuaban::where('maqh_id',$quanhuyen_id)
+        ->where('status',0)
+        ->orderBy('created_at','DESC')
+        ->paginate(12);
         return view('contents.frontend.muabanByXaPhuong',\compact('tinban','title'));
     }
 
@@ -44,7 +61,10 @@ class MainController extends Controller
         $title2 = DB::table('xaphuong')
                 ->join('quanhuyen','xaphuong.maqh','=','quanhuyen.id')
                 ->pluck('quanhuyen.tenqh')->first();
-        $tinban = Tinmuaban::where('maxp_id',$xaphuong_id)->paginate(12);
+        $tinban = Tinmuaban::where('maxp_id',$xaphuong_id)
+        ->where('status',0)
+        ->orderBy('created_at','DESC')
+        ->paginate(12);
 
         
         return view('contents.frontend.muabanByXaPhuong',\compact('tinban','title','title2'));
@@ -55,6 +75,8 @@ class MainController extends Controller
 
         $tinban = Tinmuaban::where('maqh_id',$tindetail->maqh_id)
         ->where('id','<>',$tindetail->id)
+        ->where('status',0)
+        ->orderBy('created_at','DESC')
         ->paginate(12);
         return view('contents.frontend.duancon',\compact('tinban','tindetail'));
     }

@@ -1,9 +1,9 @@
 <?php
 if (session_id() == '') session_start();
 
-$upload_dir =  "uploads";
+$upload_dir =  "../public/uploads/";
 $current_path =  "../../uploads/";
-$thumbs_base_path = "../../uploads/thumbs/";
+$thumbs_base_path = "../../uploads/";
 
 
 

@@ -5,6 +5,7 @@
 @section('css')
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 <link rel="stylesheet" href="{{asset('../dist/css/tinmuaban.css')}}">
+<link rel="stylesheet" href="{{asset('../dist/css/imageUpload.css')}}">
 @endsection
 @section('content')
 <?php
@@ -135,5 +136,6 @@ $user = json_decode($user);
 @endsection
 @section('js')
 <script src="{{asset('../ckeditor/ckeditor.js')}}"></script>
+<script src="{{asset('../dist/js/backend/uploadimage.js')}}"></script>
 <script src="{{asset('../dist/js/backend/tinmuaban.js')}}"></script>
  @endsection
